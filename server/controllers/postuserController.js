@@ -57,7 +57,9 @@ const loginpostUser = asynchandler(async (req, res) => {
   }
 });
 
-const getMe = asynchandler(async (req, res) => {});
+const getMe = asynchandler(async (req, res) => {
+  res.status(200).json(req.postuser);
+});
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
